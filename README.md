@@ -131,7 +131,3 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 
 ```
 
-```
-
-
-

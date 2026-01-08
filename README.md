@@ -2,6 +2,8 @@ Markdown# Advanced Bode Plot Simulator & Op-Amp Design Tool
 
 Đây là phần mềm mô phỏng đồ thị Bode chuyên sâu được viết bằng Python. Công cụ này hỗ trợ kỹ sư và sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
 
+---
+
 ## 🌟 Tính Năng Nổi Bật
 
 1.  **Vẽ Đồ Thị Bode (Gain & Phase):**
@@ -20,11 +22,6 @@ Markdown# Advanced Bode Plot Simulator & Op-Amp Design Tool
     * Xác định **Gain Crossover Frequency** ($f_{0dB}$) và **Bandwidth** ($f_{-3dB}$).
     * Hiển thị đường gióng tại điểm cắt biên để dễ dàng tra cứu.
 
-4.  **Tương Tác & So Sánh:**
-    * **Kéo thả (Drag & Drop):** Thay đổi tần số cắt bằng cách kéo trực tiếp các đường Pole trên đồ thị.
-    * **Click-to-Inspect:** Nhấn vào bất kỳ điểm nào trên đường cong để xem tọa độ chính xác (Hz, dB, Deg).
-    * **Chế độ so sánh:** Hỗ trợ 2 hệ thống (Av1 và Av2) để so sánh trước và sau khi bù.
-
 ---
 
 ## ⚙️ Yêu Cầu Cài Đặt
@@ -33,10 +30,12 @@ Markdown# Advanced Bode Plot Simulator & Op-Amp Design Tool
 Phần mềm yêu cầu **Python 3.7** trở lên (Khuyến nghị Python 3.9+).
 
 ### 2. Cài đặt thư viện
-Bạn cần cài đặt các thư viện `numpy`, `matplotlib`, và `scipy`. Mở Terminal (hoặc CMD/PowerShell) và chạy lệnh sau:
+Bạn cần cài đặt các thư viện `numpy`, `matplotlib`, và `scipy`. 
+
+Mở Terminal (hoặc CMD/PowerShell) và chạy lệnh sau:
 
 ```bash
 pip install numpy matplotlib scipy
 Lưu ý cho người dùng Linux (Ubuntu/Debian):Nếu gặp lỗi liên quan đến thư viện giao diện tkinter, hãy chạy lệnh sau:Bashsudo apt-get install python3-tk
-(Trên Windows và macOS, tkinter thường đã được cài sẵn cùng Python).🚀 Hướng Dẫn Sử DụngBước 1: Chạy chương trìnhMở terminal tại thư mục chứa file code và chạy:Bashpython <ten_file_cua_ban>.py
-Bước 2: Thiết lập thông số cơ bảnGain DC: Nhập hệ số khuếch đại vòng hở tại DC (ví dụ: 10000000 cho 140dB) ở góc trên bên trái. Nhấn Enter.Thêm Pole/Zero:Nhấn "+ Thêm Pole" để thêm các điểm cực của mạch (ví dụ: cực tại ngõ ra tầng 1 và tầng 2).Nhập giá trị điện trở ($R$) và tụ điện ($C$) thực tế của mạch.Nhấn "+ Thêm Zero (RHP)" nếu mạch có điểm không nằm bên phải mặt phẳng phức (thường gặp khi dùng tụ bù Miller mà không có trở Nulling).Bước 3: Sử dụng Chế độ Bù Miller (Op-Amp Design)Đây là tính năng quan trọng nhất để thiết kế ổn định mạch:Đảm bảo bạn đã có ít nhất 2 Poles (P1, P2) trong danh sách.Đánh dấu vào ô "Bật tính Cc (Miller)".Nhập Gain Tầng 2 (Av2) (ví dụ: 50 hoặc 100).Điều chỉnh:Cách 1: Nhập giá trị tụ bù vào ô Cc (ví dụ 10e-12 cho 10pF).Cách 2 (Trực quan): Dùng chuột kéo đường P2 (hoặc P1) trên đồ thị. Chương trình sẽ tự động tính ngược ra $C_c$ cần thiết và cập nhật vị trí của Pole còn lại theo hiệu ứng Miller.Quan sát Phase Margin (PM) ở bảng thông tin góc dưới bên trái. Mục tiêu thường là $PM \approx 60^\circ$.Bước 4: So sánh (Tùy chọn)Nhấn nút "+ Kích hoạt Av2".Thiết lập thông số cho hệ thống 2 (ví dụ: mạch khi chưa bù) để so sánh hiệu quả với hệ thống 1 (mạch đã bù).📝 Các Công Thức Được Sử DụngChương trình sử dụng các công thức gần đúng chuẩn trong thiết kế vi mạch Analog:Tần số Pole/Zero:$$f = \frac{1}{2\pi R C_{total}}$$Hiệu ứng Miller:Khi bật chế độ Miller, tụ $C$ tại các nút Pole 1 và Pole 2 được tính lại:Tại Pole 1 (Dominant): $C_{total1} = C_{base1} + C_c (1 + A_{v2})$Tại Pole 2 (Non-dominant): $C_{total2} = C_{base2} + C_c (1 + \frac{1}{A_{v2}})$Right Half Plane Zero (RHPZ):Zero được thêm vào sẽ làm tăng biên độ (+20dB/dec) nhưng làm giảm pha (-90°), đặc trưng của RHP Zero trong mạch Op-Amp.⚠️ Khắc phục sự cốĐồ thị bị trắng/không hiện: Kiểm tra xem bạn đã nhập Gain và thêm ít nhất 1 Pole chưa.Không kéo được Pole: Khi đang bật chế độ Miller, việc kéo Pole bị ràng buộc bởi công thức toán học. Nếu kéo quá nhanh ra vùng tần số mà $C_{total} < C_{base}$, chương trình sẽ giới hạn $C_c = 0$. Hãy thử nhập trực tiếp số vào ô Cc.Lỗi hiển thị font chữ: Đảm bảo máy tính có font Arial hoặc chỉnh sửa code phần font=("Arial", ...) nếu cần.Tác giả: [Tên của bạn]Phiên bản: 1.0
+(Trên Windows và macOS, tkinter thường đã được cài sẵn cùng Python).🚀 Hướng Dẫn Sử DụngBước 1: Khởi độngMở terminal tại thư mục chứa file code và chạy lệnh:Bashpython bode_simulator.py
+(Thay bode_simulator.py bằng tên file bạn đã lưu)Bước 2: Thiết lập thông số cơ bảnGain DC: Nhập hệ số khuếch đại vòng hở tại DC (ví dụ: 10000000 cho 140dB) ở góc trên bên trái. Nhấn Enter hoặc nút Cập nhật Gain.Thêm Pole/Zero:Nhấn "+ Thêm Pole" để thêm các điểm cực của mạch.Nhập giá trị điện trở ($R$) và tụ điện ($C$) thực tế của mạch.Nhấn "+ Thêm Zero (RHP)" nếu mạch có điểm không nằm bên phải mặt phẳng phức (ví dụ do đường truyền thẳng qua $C_c$).Bước 3: Sử dụng Chế độ Bù Miller (Quan trọng)Đây là tính năng dùng để thiết kế ổn định cho Op-Amp 2 tầng:Điều kiện: Đảm bảo bạn đã có ít nhất 2 Poles (P1, P2) trong danh sách.Kích hoạt: Đánh dấu vào ô "Bật tính Cc (Miller)".Nhập thông số:Nhập Gain Tầng 2 (Av2) (ví dụ: 100).Điều chỉnh tụ bù:Cách 1: Nhập giá trị tụ bù vào ô Cc (ví dụ 10e-12 cho 10pF).Cách 2: Dùng chuột kéo đường P2 (hoặc P1) trên đồ thị. Chương trình sẽ tự động tính ngược ra $C_c$ cần thiết và cập nhật vị trí của Pole còn lại.Kết quả: Quan sát Phase Margin (PM) ở bảng thông tin góc dưới bên trái. Mục tiêu thường là $PM \approx 60^\circ$.⚠️ Khắc phục sự cốLỗi hiển thị: Nếu đồ thị bị trắng, hãy kiểm tra xem bạn đã nhập Gain DC chưa.Không kéo được Pole: Khi đang bật chế độ Miller, việc kéo Pole bị ràng buộc bởi công thức toán học. Nếu kéo quá nhanh ra vùng tần số không hợp lệ (làm cho $C_{total} < C_{goc}$), $C_c$ sẽ về 0. Hãy thử nhập trực tiếp số vào ô Cc để chính xác hơn.Phiên bản: 1.1

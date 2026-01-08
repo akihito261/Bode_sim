@@ -124,11 +124,12 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 * **Không kéo được Pole:** Khi đang bật chế độ Miller, việc kéo Pole bị ràng buộc bởi công thức toán học. Nếu kéo quá nhanh ra vùng tần số mà , chương trình sẽ giới hạn . Hãy thử nhập trực tiếp số vào ô Cc.
 * **Lỗi hiển thị font chữ:** Đảm bảo máy tính có font Arial hoặc chỉnh sửa code phần `font=("Arial", ...)` nếu cần.
 
-* 
+## 📝 Giao diệndiện
 ![Giao diện chương trình](demo.png)
 ---
 **Tác giả:** Nguyễn Đức Tự .
 **Phiên bản:** 1.0 .
+
 
 
 

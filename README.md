@@ -28,7 +28,6 @@
     * **Chế độ so sánh:** Hỗ trợ 2 hệ thống (Av1 và Av2) để so sánh trước và sau khi bù.
 
 ---
-```markdown
 ## ⚙️ Yêu Cầu Cài Đặt
 
 ### 1. Phiên bản Python
@@ -133,5 +132,6 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 ```
 
 ```
+
 
 

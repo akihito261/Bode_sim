@@ -60,7 +60,7 @@ sudo apt-get install python3-tk
 Mở terminal tại thư mục chứa file code và chạy:
 
 ```bash
-python bode_simulator.py
+python Bode_simulator.py
 
 ```
 
@@ -129,6 +129,7 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 ---
 **Tác giả:** Nguyễn Đức Tự .
 **Phiên bản:** 1.0 .
+
 
 
 

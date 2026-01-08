@@ -125,11 +125,9 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 * **Lỗi hiển thị font chữ:** Đảm bảo máy tính có font Arial hoặc chỉnh sửa code phần `font=("Arial", ...)` nếu cần.
 
 ---
+**Tác giả:** Nguyễn Đức Tự .
+**Phiên bản:** 1.0 .
 
-**Tác giả:** Nguyễn Đức Tự
-**Phiên bản:** 1.0
 
-```
-```
 
 

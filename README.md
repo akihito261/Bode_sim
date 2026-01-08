@@ -1,5 +1,5 @@
 
-```markdown
+
 # Advanced Bode Plot Simulator & Op-Amp Design Tool
 
 Đây là phần mềm mô phỏng đồ thị Bode được viết bằng Python. Công cụ này hỗ trợ sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
@@ -28,7 +28,7 @@
     * **Chế độ so sánh:** Hỗ trợ 2 hệ thống (Av1 và Av2) để so sánh trước và sau khi bù.
 
 ---
-
+```markdown
 ## ⚙️ Yêu Cầu Cài Đặt
 
 ### 1. Phiên bản Python
@@ -133,4 +133,5 @@ Chương trình sử dụng các công thức gần đúng chuẩn trong thiết
 ```
 
 ```
+
 

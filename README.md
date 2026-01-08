@@ -2,7 +2,7 @@
 ```markdown
 # Advanced Bode Plot Simulator & Op-Amp Design Tool
 
-Đây là phần mềm mô phỏng đồ thị Bode chuyên sâu được viết bằng Python. Công cụ này hỗ trợ kỹ sư và sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
+Đây là phần mềm mô phỏng đồ thị Bode được viết bằng Python. Công cụ này hỗ trợ sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
 
 ## 🌟 Tính Năng Nổi Bật
 
@@ -61,7 +61,7 @@ sudo apt-get install python3-tk
 Mở terminal tại thư mục chứa file code và chạy:
 
 ```bash
-python <ten_file_cua_ban>.py
+python bode_simulator.py
 
 ```
 
@@ -100,19 +100,24 @@ python <ten_file_cua_ban>.py
 
 Chương trình sử dụng các công thức gần đúng chuẩn trong thiết kế vi mạch Analog:
 
-1. **Tần số Pole/Zero:**
+1.  **Tần số Pole/Zero (Hz):**
+    f = 1 / (2 * π * R * C_total)
 
+2.  **Hiệu ứng Miller (Miller Effect):**
+    Khi bật chế độ Miller, giá trị tụ điện tại cực P1 và P2 sẽ thay đổi như sau:
+    
+    * **Tại Pole 1 (Dominant Pole):**
+        C_total1 = C_base1 + C_in_miller
+        (Trong đó: C_in_miller = Cc * (1 + Av2))
 
-2. **Hiệu ứng Miller:**
-Khi bật chế độ Miller, tụ  tại các nút Pole 1 và Pole 2 được tính lại:
-* Tại Pole 1 (Dominant): 
-* Tại Pole 2 (Non-dominant): 
+    * **Tại Pole 2 (Non-dominant Pole):**
+        C_total2 = C_base2 + C_out_miller
+        (Trong đó: C_out_miller = Cc * (1 + 1/Av2))
 
+    *Lưu ý: Av2 là hệ số khuếch đại của tầng thứ 2.*
 
-3. **Right Half Plane Zero (RHPZ):**
-Zero được thêm vào sẽ làm tăng biên độ (+20dB/dec) nhưng làm giảm pha (-90°), đặc trưng của RHP Zero trong mạch Op-Amp.
-
----
+3.  **Right Half Plane Zero (RHPZ):**
+    Điểm Zero này làm tăng biên độ (+20dB/dec) nhưng lại làm giảm pha (-90 độ).
 
 ## ⚠️ Khắc phục sự cố
 
@@ -128,3 +133,4 @@ Zero được thêm vào sẽ làm tăng biên độ (+20dB/dec) nhưng làm gi�
 ```
 
 ```
+

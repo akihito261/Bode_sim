@@ -1,13 +1,13 @@
 Markdown# Advanced Bode Plot Simulator & Op-Amp Design Tool
 
-Đây là phần mềm mô phỏng đồ thị Bode  được viết bằng Python. Công cụ này hỗ trợ sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
+Đây là phần mềm mô phỏng đồ thị Bode chuyên sâu được viết bằng Python. Công cụ này hỗ trợ kỹ sư và sinh viên điện tử trong việc phân tích đáp ứng tần số, đánh giá độ ổn định (Stability Analysis) và thiết kế bù tần số (Frequency Compensation) cho mạch khuếch đại thuật toán (Op-Amp).
 
-## Tính Năng Nổi Bật
+## 🌟 Tính Năng Nổi Bật
 
 1.  **Vẽ Đồ Thị Bode (Gain & Phase):**
     * Tự động tính toán và vẽ biên độ (dB) và pha (độ).
-    * Trục tần số hiển thị từ **1 Hz** để quan sát rõ đáp ứng DC.
-    * Hỗ trợ thêm **Pole (Điểm cực)** và **RHP Zero (Điểm không )**.
+    * Trục tần số hiển thị từ **0.01 Hz** để quan sát rõ đáp ứng DC.
+    * Hỗ trợ thêm **Pole (Điểm cực)** và **RHP Zero (Điểm không bán phẳng phải)**.
 
 2.  **Công Cụ Bù Miller (Miller Compensation):**
     * Tính năng chuyên biệt để mô phỏng hiệu ứng tách cực (Pole Splitting).
@@ -27,7 +27,7 @@ Markdown# Advanced Bode Plot Simulator & Op-Amp Design Tool
 
 ---
 
-##  Yêu Cầu Cài Đặt
+## ⚙️ Yêu Cầu Cài Đặt
 
 ### 1. Phiên bản Python
 Phần mềm yêu cầu **Python 3.7** trở lên (Khuyến nghị Python 3.9+).

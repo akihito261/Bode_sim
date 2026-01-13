@@ -142,7 +142,7 @@ class SystemManager:
         self.base_poles = [] 
 
     def get_poles_rad(self):
-        # Trả về list các Pole (rad/s) - LHP Pole có phần thực âm
+        # Trả về list các Pole (rad/s)
         pole_rads = []
         
         c_miller_in = 0.0
@@ -262,7 +262,7 @@ class BodePlotterApp:
         miller_frame.pack(fill=tk.X, pady=10)
 
         system.var_miller = tk.BooleanVar(value=False)
-        chk_miller = ttk.Checkbutton(miller_frame, text="Bật tính Cc (Miller)", variable=system.var_miller, 
+        chk_miller = ttk.Checkbutton(miller_frame, text="Thêm tụ bù Cc (Miller)", variable=system.var_miller, 
                                      command=lambda: self.toggle_miller(system, entry_av2, entry_cc))
         chk_miller.pack(anchor=tk.W)
 
@@ -554,7 +554,6 @@ class BodePlotterApp:
         self.ax1.clear(); self.ax2.clear()
         self.plot_data = {}
 
-        # [UPDATE] Tìm tần số Start phù hợp (0.01Hz)
         # Tìm pole/zero có tần số thấp nhất để set trục X, tối thiểu là 0.01Hz
         poles_all = self.sys1.get_poles_rad() + (self.sys2.get_poles_rad() if self.sys2.active else [])
         zeros_all = self.sys1.get_zeros_rad() + (self.sys2.get_zeros_rad() if self.sys2.active else [])
@@ -635,7 +634,7 @@ class BodePlotterApp:
 
         self.ax1.set_title("Biểu đồ Bode (Gain & Phase)") # [NEW] Title
         self.ax1.axhline(0, color='k', lw=1.5); self.ax1.grid(True, which="major", alpha=0.5); self.ax1.legend(fontsize='small')
-        self.ax1.set_ylabel('Mag (dB)'); self.ax1.set_ylim(bottom=-40, top=max(self.ax1.get_ylim()[1], 10))
+        self.ax1.set_ylabel('|H(s)| (dB)'); self.ax1.set_ylim(bottom=-40, top=max(self.ax1.get_ylim()[1], 10))
         self.ax2.set_ylabel('Phase (deg)'); self.ax2.set_xlabel('Freq (Hz)'); self.ax2.grid(True, which="major", alpha=0.5)
         
         # [UPDATE] X-Axis start at 0.01Hz explicitly
